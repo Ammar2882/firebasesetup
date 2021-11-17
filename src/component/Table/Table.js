@@ -91,10 +91,9 @@ const BasicTable = ({tenets}) => {
         <TableHead>
           <TableRow>
             <TableCell>Name </TableCell>
-            <TableCell align="right">Phone Number</TableCell>
             <TableCell align="right">Address</TableCell>
-            <TableCell align="right">Area</TableCell>
-            <TableCell align="right">Owner Name</TableCell>
+            <TableCell align="right">Phone Number</TableCell>
+            <TableCell align="right">Direction</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -106,7 +105,6 @@ const BasicTable = ({tenets}) => {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.address}</TableCell>
               <TableCell align="right">{row.phoneNumber}</TableCell>
               <TableCell align="right">{row.direction}</TableCell>
