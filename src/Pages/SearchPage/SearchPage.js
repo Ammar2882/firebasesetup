@@ -13,16 +13,17 @@ var db = firebase.firestore();
 const SearchPage = () => {
 const [tenetData , setTenetData] = useState([])
 const [loading , setLoading] = useState(true)
+
   useEffect(()=>{
     db.collection("tenets").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-      setTenetData(doc.data())
-          setLoading(false)
+        setTenetData(currentArray => [...currentArray, doc.data()])
+        setLoading(false)
           
       });
-  },[])
+  })
   
-});
+},[]);
 
 if(loading){
   return(
@@ -44,10 +45,10 @@ else{
             style={{ width: "500px" }}
           />
         </SearchF>
-        {/* <TableF>
-          <Table />
-        </TableF> */}
-      <table>
+        <TableF>
+          <Table tenets={tenetData}/>
+        </TableF>
+      {/* <table>
         <th>Name</th>
         <th>Address</th>
         <th>Phone Number</th>
@@ -60,7 +61,7 @@ else{
             {tenetData.direction}
           </tr>
       
-      </table>
+      </table> */}
 
       </SearchContainer>
     </>
